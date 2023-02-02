@@ -35,18 +35,15 @@ def request_user():
 	if not is_valid_input(pick):
 		print("Неправильный ввод")
 		return
-	else:
-		print("Выберите метод обработки:", "1: Используя стандартные функции", "2: Не используя стандартные функции"
-		      , sep="\n")
-		method: str = input()
-		if not is_valid_input(method):
-			print("Неправильный ввод")
-			return
-		else:
-			data: list[int] = get_list(pick)
-			if data and len(data):
-				print("Исходный массив: ", data)
-				print("Результат:", do_calculatioins(method, data))
+	print("Выберите метод обработки:", "1: Используя стандартные функции", "2: Не используя стандартные функции", sep="\n")
+	method: str = input()
+	if not is_valid_input(method):
+		print("Неправильный ввод")
+		return
+	data: list[int] = get_list(pick)
+	if data and len(data):
+		print("Исходный массив: ", data)
+		print("Результат:", do_calculatioins(method, data))
 
 
 if __name__ == "__main__":
