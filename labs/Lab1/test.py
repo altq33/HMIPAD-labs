@@ -1,4 +1,5 @@
-from algorithms_for_lists import  delete_even_without_standart, delete_even_with_standart
+from algorithms_for_lists import delete_even_without_standart, delete_even_with_standart
+
 
 def test_base():
 	arr = [1, 8, 8, 4, 7, 0, 5]

@@ -9,14 +9,17 @@ import numpy.random
 from algorithm_for_matrix import get_columns_with_num
 
 
+# проверка являются ли строки числом
 def is_valid_input(n: str = '0', m: str = '0') -> bool:
 	return n.isnumeric() and m.isnumeric()
 
 
+# генерим рандомную матрицу через нумпай
 def generate_random_matrix(n: int, m: int) -> object:
 	return numpy.random.randint(5, size=(n, m)).tolist()
 
 
+# запись в файл
 def write_in_file(have: set, havent: set):
 	output = open("outuput.txt", "w+", encoding="utf-8")
 	first_str: str = "Номера колонок содержащие число: " + " ".join(map(str, have)) + "\n"
@@ -25,7 +28,7 @@ def write_in_file(have: set, havent: set):
 	output.write(second_str)
 	output.close()
 
-
+# Основная функция диалога с юзером
 def request_user():
 	print("Введите размер матрицы N x M:")
 	print("N:")
@@ -43,7 +46,6 @@ def request_user():
 	matrix = generate_random_matrix(int(n), int(m))
 	print("Сгенерированная матрица:")
 	pprint(matrix)
-
 
 	have, havent = get_columns_with_num(int(h), matrix)
 	write_in_file(have, havent)

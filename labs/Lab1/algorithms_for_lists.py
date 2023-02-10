@@ -5,8 +5,7 @@ def delete_even_with_standart(array: list[int]) -> list[int]:
 	max_el_index = array.index(max(array))
 	if min_el_index > max_el_index:
 		min_el_index, max_el_index = max_el_index, min_el_index
-
-	return [el[1] for el in (filter(lambda x: not (x[1] % 2 == 0 and min_el_index < x[0] < max_el_index) , enumerate(array)))]
+	return [el[1] for el in enumerate(array) if not(el[1] % 2 == 0 and (min_el_index < el[0] < max_el_index))]
 
 
 def delete_even_without_standart(array: list[int]) -> list[int]:

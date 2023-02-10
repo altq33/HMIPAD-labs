@@ -8,6 +8,7 @@
 from utils import *
 
 
+# Функция опроса юзера
 def request_user():
 	print("Введите абсолютный путь до директории:")
 	path_to_dir: str = input()
@@ -17,7 +18,7 @@ def request_user():
 	print("Введите абсолютный путь до csv файла:")
 	path_to_dir = input()
 	data: list[dict] = get_data_from_csv(path_to_dir)
-	print("Выберите метод сортировке для вывода объектов:", "1. По строковому полю (date)",
+	print("Выберите метод сортировки для вывода объектов:", "1. По строковому полю (date)",
 	      "2. По числовому полю (mm/h)",
 	      "3. Объекты где ширина > 500 и длина больше 300", sep="\n")
 	pick = input()
