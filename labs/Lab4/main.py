@@ -3,7 +3,10 @@
 Временная шкала показаний осадков (прямоугольная область): №, широта, долгота, ширина, длина, мм/ч, дата и время
 """
 import csv
+from pprint import pprint
+
 from labs.Lab3.utils import is_valid_input
+from labs.Lab4.RectSector import RectSector
 from labs.Lab4.Measurement import Measurement
 
 
@@ -31,10 +34,6 @@ def read_or_write_csv(mode: str, path: str, mes: Measurement = None):
 			raise Exception("Неправильный путь до файла")
 
 
-def request_user():
-	print("Введите путь до файла:")
-
-
 def sort_objects(data, pick):
 	match pick:
 		case "1":
@@ -45,7 +44,8 @@ def sort_objects(data, pick):
 			return list(filter(lambda d: d.width > 500 and d.length > 300, data))
 
 
-
+def request_user():
+	print("Введите путь до файла:")
 	path = input()
 	data = read_or_write_csv("r", path)
 	print("Выберите метод сортировки для вывода объектов:", "1. По строковому полю (date)",
