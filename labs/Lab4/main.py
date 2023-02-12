@@ -3,10 +3,7 @@
 Временная шкала показаний осадков (прямоугольная область): №, широта, долгота, ширина, длина, мм/ч, дата и время
 """
 import csv
-from pprint import pprint
-
 from labs.Lab3.utils import is_valid_input
-from labs.Lab4.RectSector import RectSector
 from labs.Lab4.Measurement import Measurement
 
 
