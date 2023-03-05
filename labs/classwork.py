@@ -1,9 +1,9 @@
 import time
 
 
-def parse_date(time):
-	total_seconds = int(time)
-	micro_seconds = int((time - total_seconds) * 1000000)
+def parse_date(timest):
+	total_seconds = int(timest)
+	micro_seconds = int((timest - total_seconds) * 1000000)
 	minutes, seconds = divmod(total_seconds, 60)
 	hours, minutes = divmod(minutes, 60)
 	days, hours = divmod(hours, 24)
@@ -31,7 +31,6 @@ def parse_date(time):
 		else:
 			break
 	day += days
-	# Return the parsed date and time as a tuple
 	return year, month, day, hours, minutes, seconds, micro_seconds
 
 
