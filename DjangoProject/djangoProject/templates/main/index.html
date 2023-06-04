@@ -1,0 +1,41 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="wrap_mes">
+           {% if request.user.is_superuser %}
+        <a class="add_mes" href="{% url 'add' %}">+</a>
+    {% endif %}
+    {% if all_mes %}
+     {% for m in all_mes %}
+    <div class="meas">
+        <ul>
+            <li>Дата - {{ m.date }}</li>
+            <li>Широта - {{ m.latitude }}</li>
+            <li>Долгота - {{ m.longitude }}</li>
+            <li>Длина - {{ m.length }}</li>
+            <li>Ширина - {{ m.width }}</li>
+            <li>Количество осадков(мм/ч) - {{ m.mm_h }}</li>
+            <li>Страна - {{ m.country }}</li>
+                <ol>
+                <h5>Датчики:</h5>
+            {% for sens in m.sensors.all %}
+                            <li>{{ sens.name }}</li>
+            {% endfor %}
+                        </ol>
+        </ul>
+        {% if request.user.is_superuser %}
+        <a href="{% url 'delete' m.id %}" style="color: red; font-size: 30px; float: right" class="btn warning" type="submit">X</a>
+        <a href="{% url 'update' m.id %}" style="color: black; font-size: 30px; float: left" class="btn warning" type="submit">Редактировать</a>
+         {% endif %}
+    </div>
+    {% endfor %}
+    {% else %}
+        <h2>Нет новостей</h2>
+    {% endif %}
+    </div>
+
+{% endblock %}

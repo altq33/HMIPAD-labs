@@ -1,0 +1,26 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="wrap_mes">
+    {% if all_loc %}
+     {% for l in all_loc %}
+    <div class="meas">
+        <ul>
+            <li>Широта: {{ l.latitude }}</li>
+            <li>Долгота: {{ l.longitude }}</li>
+            <li>Площадь: {{ l.area }}</li>
+            <li>Высота над уровнем моря: {{ l.sea_height }}</li>
+            <li>Измерение: {{ l.measurement }}</li>
+        </ul>
+    </div>
+    {% endfor %}
+    {% else %}
+        <h2>Нет стран</h2>
+    {% endif %}
+    </div>
+
+{% endblock %}

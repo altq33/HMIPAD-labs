@@ -1,0 +1,24 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="wrap_mes">
+        <h1 style="color: white">Добавить статью</h1>
+        <span>{{ error }}</span>
+        <form class="add_mes_form" method="post" id="addMes">
+            {% csrf_token %}
+            {{ form.mm_h }}
+            {{ form.width }}
+            {{ form.length }}
+            {{ form.longitude }}
+            {{ form.latitude }}
+            {{ form.date }}
+           {{ form.country }}
+           {{ form.sensors }}
+            <input style="background: aquamarine; color: black"  class="btn btn-success" type="submit">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="wrap_mes">
+            <h1>Авторизация</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Войти</button>
+            </form>
+    </div>
+
+{% endblock %}

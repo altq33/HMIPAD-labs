@@ -1,0 +1,23 @@
+{% extends "main/layout.html" %}
+{% load static %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="wrap_mes">
+    {% if all_cou %}
+     {% for c in all_cou %}
+    <div class="meas">
+        <ul>
+            <li>Код страны: {{ c.code }}</li>
+            <li>Название страны: {{ c.name }}</li>
+        </ul>
+    </div>
+    {% endfor %}
+    {% else %}
+        <h2>Нет стран</h2>
+    {% endif %}
+    </div>
+
+{% endblock %}
